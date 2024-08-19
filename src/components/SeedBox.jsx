@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-
 export default function SeedBox({ seedPhrase }) {
     const [copied, setCopied] = useState(false);
 
@@ -14,7 +13,7 @@ export default function SeedBox({ seedPhrase }) {
     };
 
     return (
-        <div className="bg-gray-900 text-white p-3 rounded-lg w-2/3 mx-auto mt-8">
+        <div className="bg-black text-white p-3 rounded-lg w-2/3 mx-auto mt-8">
             <p className="text-lg ml-3 font-semibold mb-2">
                 <strong>Seed Phrase:</strong>
             </p>
