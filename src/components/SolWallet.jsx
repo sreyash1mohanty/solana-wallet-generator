@@ -18,6 +18,7 @@ export function SolWallet({ mnemonic,setAlertvis}) {
     const [visibleKeys, setVisibleKeys] = useState({});
     const [copied, setCopied] = useState(false);
     const [open, setOpen] = useState(false);
+    const [openDeleteAll, setOpenDeleteAll] = useState(false);
     const [deleteIndex, setDeleteIndex] = useState(null);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -69,11 +70,11 @@ export function SolWallet({ mnemonic,setAlertvis}) {
         setPrivateKeys([]);
         setVisibleKeys({});
         setDeleteIndex(null);
-        setOpen(false);
+        setOpenDeleteAll(false);
         
     };
     const handleDeleteAllConfirmation = () => {
-        setOpen(true);
+        setOpenDeleteAll(true);
     };
 
     return (
@@ -152,8 +153,8 @@ export function SolWallet({ mnemonic,setAlertvis}) {
         </Dialog>
         <Dialog
                 fullScreen={fullScreen}
-                open={open}
-                onClose={() => setOpen(false)}
+                open={openDeleteAll}
+                onClose={() => setOpenDeleteAll(false)}
                 aria-labelledby="responsive-dialog-title"
                 PaperProps={{
                     sx: {
@@ -171,7 +172,7 @@ export function SolWallet({ mnemonic,setAlertvis}) {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => setOpen(false)} sx={{ color: 'white' }}>
+                    <Button onClick={() => setOpenDeleteAll(false)} sx={{ color: 'white' }}>
                         Cancel
                     </Button>
                     <Button onClick={handleAllDelete} sx={{ color: 'red' }} autoFocus>
